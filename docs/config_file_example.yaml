@@ -29,3 +29,7 @@ finder:
 
 shell:
   command: bash # shell used for shell out. possible values: bash, zsh, dash, ...
+  prefix: >
+     source "${HOME}/dotfiles/shell/aux/vars.bash"
+     source "${HOME}/dotfiles/shell/aux/core.bash"
+     echoerr foooo

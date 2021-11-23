@@ -93,6 +93,10 @@ impl Config {
         self.yaml.shell.command.clone()
     }
 
+    pub fn shell_prefix(&self) -> Option<String> {
+        self.yaml.shell.prefix.clone()
+    }
+
     pub fn tag_rules(&self) -> Option<String> {
         self.clap
             .tag_rules

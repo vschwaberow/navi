@@ -39,7 +39,16 @@ pub fn out() -> Command {
     let shell = CONFIG.shell();
     let mut cmd = Command::new(&shell);
     let arg = if shell == "cmd.exe" { "/c" } else { "-c" };
-    cmd.arg(arg);
+    let prefix = CONFIG.shell_prefix();
+    if let Some(p) = prefix {
+        let full_arg = format!("{}\n\n{}", p, arg);
+        dbg!(&full_arg);
+        cmd.arg(full_arg);
+    } else {
+        dbg!(&arg);
+        cmd.arg(arg);
+    }
+    dbg!(&cmd);
     cmd
 }
 
